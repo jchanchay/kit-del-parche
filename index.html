@@ -1,0 +1,548 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>El Kit del Parche</title>
+<meta name="description" content="Haz el test y descubre tu receta del Kit del Parche.">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:title" content="El Kit del Parche: ¿cuál es tu receta?">
+<meta property="og:description" content="7 preguntas sobre lo que te gusta y te decimos qué preparar con tu kit.">
+<meta property="og:image" content="https://jchanchay.github.io/kit-del-parche/img/kit.jpg">
+<meta property="og:url" content="https://jchanchay.github.io/kit-del-parche/">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23B3282D'/%3E%3Ctext x='32' y='46' font-family='Arial Black,Arial' font-weight='900' font-size='38' text-anchor='middle' fill='%23F7F3EC'%3EK%3C/text%3E%3C/svg%3E">
+<meta name="theme-color" content="#F7F3EC">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --crema:#F7F3EC; --crema-2:#EFE8DC; --tinta:#151515; --gris:#5B5750;
+  --rojo:#B3282D; --rojo-osc:#8E1E22; --dorado:#C9A35B; --dorado-claro:#E9D9B4;
+  --azul:#1B4A9C; --azul-osc:#123672; --blanco:#FFFFFF;
+  --radio:18px; --sombra:0 10px 30px rgba(60,40,10,.10);
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{background:var(--crema);color:var(--tinta)}
+body{font-family:"Hanken Grotesk",system-ui,sans-serif;min-height:100dvh;display:flex;flex-direction:column;align-items:center}
+.app{width:100%;max-width:480px;min-height:100dvh;display:flex;flex-direction:column;padding:18px 18px calc(18px + env(safe-area-inset-bottom))}
+.top{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.marca{font-family:Anton,sans-serif;color:var(--azul);font-size:22px;letter-spacing:.06em;line-height:1}
+.marca small{display:block;height:2px;width:46px;background:var(--dorado);margin-top:5px}
+.tag{font-size:10px;font-weight:700;letter-spacing:.14em;color:var(--gris);text-transform:uppercase}
+.tag b{color:var(--rojo)}
+h1,h2{font-family:Anton,sans-serif;font-weight:400;text-transform:uppercase;line-height:.95;letter-spacing:.01em}
+h1{font-size:clamp(48px,15vw,68px)}
+h2{font-size:clamp(34px,10vw,44px)}
+.rojo{color:var(--rojo)} .azul{color:var(--azul)}
+.regla{width:70px;height:2px;background:var(--dorado);margin:16px 0}
+p.lead{font-size:18px;line-height:1.35;font-weight:500}
+.screen{display:none;flex:1;flex-direction:column;animation:entra .35s ease both}
+.screen.on{display:flex}
+@keyframes entra{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.hero{margin:6px -18px 0;position:relative}
+.hero img{width:100%;max-height:34dvh;object-fit:contain;display:block;mask-image:linear-gradient(#000 78%,transparent)}
+.edad .btn{white-space:nowrap;padding:16px 12px}
+.btn{appearance:none;border:0;border-radius:999px;font:700 17px/1 "Hanken Grotesk",sans-serif;padding:18px 22px;width:100%;cursor:pointer;transition:transform .12s,background .2s}
+.btn:active{transform:scale(.98)}
+.btn-rojo{background:var(--rojo);color:var(--blanco)}
+.btn-rojo:hover{background:var(--rojo-osc)}
+.btn-azul{background:var(--azul);color:var(--blanco)}
+.btn-borde{background:transparent;color:var(--tinta);border:2px solid var(--tinta)}
+.btn-link{background:none;color:var(--gris);font-weight:600;text-decoration:underline;padding:12px}
+.fila{display:flex;gap:10px}
+.fila .btn{flex:1}
+.pie{margin-top:auto;padding-top:18px;font-size:11px;line-height:1.45;color:var(--gris)}
+.pie .legal{font-weight:700;color:var(--tinta);text-transform:uppercase;letter-spacing:.02em;border-top:1px solid var(--dorado-claro);padding-top:12px;margin-bottom:6px}
+.pie .firma{letter-spacing:.12em;text-transform:uppercase;font-weight:700}
+.pie .firma b{color:var(--rojo)}
+.card{background:var(--blanco);border:1.5px solid var(--dorado-claro);border-radius:var(--radio);box-shadow:var(--sombra)}
+.saltar{appearance:none;background:none;border:0;margin:14px auto 0;padding:8px;font:500 13px/1 "Hanken Grotesk",sans-serif;color:var(--gris);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+/* edad: hoja inferior */
+.velo{position:fixed;inset:0;background:rgba(20,15,10,.45);display:none;align-items:flex-end;justify-content:center;z-index:10}
+.velo.on{display:flex}
+.hoja{width:100%;max-width:480px;background:var(--crema);border-radius:24px 24px 0 0;padding:24px 20px calc(24px + env(safe-area-inset-bottom));animation:sube .28s ease both}
+@keyframes sube{from{transform:translateY(100%)}to{transform:none}}
+.hoja h3{font-family:Anton,sans-serif;font-weight:400;font-size:28px;text-transform:uppercase;margin-bottom:6px}
+.hoja p{color:var(--gris);font-size:15px;margin-bottom:16px}
+.hoja .btn{white-space:nowrap;padding:16px 12px}
+/* compra y pedido */
+.compra{padding:18px;margin:6px 0 12px}
+.compra h4{font-family:Anton,sans-serif;font-weight:400;font-size:22px;text-transform:uppercase;line-height:1.05;margin-bottom:12px}
+.tres{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.tres button{appearance:none;border:2px solid var(--crema-2);background:var(--blanco);border-radius:999px;padding:13px 4px;font:700 15px/1 "Hanken Grotesk",sans-serif;color:var(--tinta);cursor:pointer}
+.tres button.on{border-color:var(--rojo);background:var(--rojo);color:var(--blanco)}
+.gracias-compra{font-size:14px;color:var(--gris);margin-top:10px;display:none}
+.kit-op{appearance:none;width:100%;text-align:left;display:block;padding:18px;border-radius:var(--radio);border:2px solid var(--dorado-claro);background:var(--blanco);cursor:pointer;margin-bottom:10px;color:var(--tinta);font:500 15px/1.4 "Hanken Grotesk",sans-serif}
+.kit-op b{display:block;font-family:Anton,sans-serif;font-weight:400;font-size:26px;text-transform:uppercase;margin-bottom:4px}
+.kit-op .etq{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:5px 9px;border-radius:999px;margin-bottom:8px;color:var(--blanco)}
+.kit-op.sel{border-color:var(--rojo);background:#FFF7F5}
+.aviso{font-size:13px;color:var(--gris);background:var(--crema-2);border-radius:12px;padding:12px 14px;margin:6px 0 16px;line-height:1.4}
+/* test */
+.progreso{display:flex;gap:6px;margin:4px 0 22px}
+.progreso i{flex:1;height:5px;border-radius:9px;background:var(--crema-2);overflow:hidden;position:relative}
+.progreso i.lleno::after{content:"";position:absolute;inset:0;background:var(--rojo);animation:llena .35s ease both}
+@keyframes llena{from{transform:translateX(-100%)}to{transform:none}}
+.paso{font-size:12px;font-weight:800;letter-spacing:.16em;color:var(--dorado);text-transform:uppercase;margin-bottom:8px}
+.pregunta{margin-bottom:6px}
+.ayuda{color:var(--gris);font-size:15px;margin-bottom:18px}
+.opciones{display:grid;gap:10px}
+.op{appearance:none;text-align:left;display:flex;align-items:center;gap:14px;width:100%;padding:16px;border-radius:16px;border:2px solid var(--crema-2);background:var(--blanco);font:600 17px/1.25 "Hanken Grotesk",sans-serif;color:var(--tinta);cursor:pointer;transition:border-color .15s,transform .12s,background .15s}
+.op:active{transform:scale(.985)}
+.op .ico{flex:none;width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:var(--crema);font-family:Anton,sans-serif;font-size:20px;color:var(--rojo)}
+.op small{display:block;font-weight:500;font-size:14px;color:var(--gris);margin-top:2px}
+.op.sel{border-color:var(--rojo);background:#FFF7F5}
+.op.sel .ico{background:var(--rojo);color:var(--blanco)}
+.volver{margin-top:14px}
+/* resultado */
+.res-img{margin:0 -18px;background:linear-gradient(var(--crema),var(--crema-2));display:flex;justify-content:center}
+.res-img img{height:300px;max-width:100%;object-fit:contain;display:block}
+.chip{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:7px 12px;border-radius:999px;background:var(--azul);color:var(--blanco);margin-bottom:12px}
+.match{font-weight:700;color:var(--rojo)}
+.base{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:18px 0 6px;background:var(--crema-2);padding:5px;border-radius:999px}
+.base button{appearance:none;border:0;border-radius:999px;padding:13px 6px;font:700 15px/1 "Hanken Grotesk",sans-serif;background:transparent;color:var(--gris);cursor:pointer}
+.base button.on{background:var(--blanco);color:var(--azul);box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.nota-base{font-size:14px;color:var(--gris);margin-bottom:18px;min-height:2.6em}
+.bloque{padding:18px;margin-bottom:12px}
+.bloque h4{font-family:Anton,sans-serif;font-weight:400;font-size:20px;text-transform:uppercase;letter-spacing:.03em;margin-bottom:10px}
+.bloque ul{list-style:none;display:grid;gap:8px}
+.bloque li{display:flex;justify-content:space-between;gap:12px;font-size:16px;border-bottom:1px dashed var(--crema-2);padding-bottom:7px}
+.bloque li span:last-child{color:var(--gris);text-align:right;white-space:nowrap}
+.bloque li.grupo{display:block;border:0;padding:8px 0 0;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--dorado)}
+.bloque li.grupo:first-child{padding-top:0}
+.meta{display:flex;gap:16px;margin-top:10px;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gris)}
+.meta span b{color:var(--tinta)}
+.medidas{font-size:13px;color:var(--gris);margin-top:12px;line-height:1.4}
+.pasos{counter-reset:p;display:grid;gap:12px}
+.pasos div{display:flex;gap:12px;align-items:flex-start;font-size:16px;line-height:1.35}
+.pasos div::before{counter-increment:p;content:"0" counter(p);font-family:Anton,sans-serif;font-size:22px;color:var(--rojo);line-height:1;min-width:30px}
+.pasos b{display:block;text-transform:uppercase;letter-spacing:.06em;font-size:13px}
+.otras{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:8px 0 16px}
+.otras button{appearance:none;border:1.5px solid var(--crema-2);background:var(--blanco);border-radius:14px;padding:6px 4px 8px;cursor:pointer;font:700 11px/1.1 "Hanken Grotesk",sans-serif;color:var(--tinta);text-transform:uppercase;letter-spacing:.04em}
+.otras img{width:100%;height:64px;object-fit:contain;display:block;margin-bottom:4px}
+.otras button.on{border-color:var(--rojo)}
+.lista{display:grid;gap:10px}
+.lista button{appearance:none;display:flex;align-items:center;gap:14px;text-align:left;background:var(--blanco);border:1.5px solid var(--dorado-claro);border-radius:16px;padding:8px 14px 8px 8px;cursor:pointer;color:var(--tinta);font:500 15px/1.3 "Hanken Grotesk",sans-serif}
+.lista img{width:78px;height:78px;object-fit:cover;border-radius:12px;flex:none;background:var(--crema-2)}
+.lista b{display:block;font-family:Anton,sans-serif;font-weight:400;font-size:22px;text-transform:uppercase;letter-spacing:.02em;margin-bottom:2px}
+.lista button:active{transform:scale(.985)}
+.toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,30px);opacity:0;background:var(--tinta);color:var(--blanco);padding:12px 18px;border-radius:999px;font-weight:600;font-size:14px;transition:.25s;pointer-events:none}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+.bloqueo{justify-content:center;text-align:center;gap:6px}
+@media (min-width:700px){body{padding:24px 0}.app{min-height:auto;border-radius:28px;background:var(--crema);box-shadow:0 20px 60px rgba(0,0,0,.08)}}
+</style>
+</head>
+<body>
+<main class="app" id="app">
+  <header class="top">
+    <div class="marca">ÁGUILA<small></small></div>
+    <div class="tag"><b>Bavaria</b></div>
+  </header>
+
+  <!-- 1. Portada: invita al test -->
+  <section class="screen on" id="s-inicio">
+    <p class="tag" style="margin-bottom:8px">Plan Presente · El kit del parche</p>
+    <h1>¿Cuál es<br><span class="rojo">tu receta?</span></h1>
+    <div class="regla"></div>
+    <p class="lead">7 preguntas sobre lo que te gusta. Te decimos qué preparar con tu kit.</p>
+    <div class="hero"><img src="img/kit.jpg" alt="Caja del Kit del Parche con latas Águila y Águila 0.0, cítricos, jarabe y vaso medidor"></div>
+    <button class="btn btn-rojo" id="empezar">Empezar el test</button>
+    <button class="saltar" id="ver-todas">Saltar y ver todas las recetas</button>
+    <div class="pie" data-pie></div>
+  </section>
+
+  <!-- 1b. Menor de edad -->
+  <section class="screen bloqueo" id="s-menor">
+    <h2>Nos vemos<br><span class="rojo">más adelante</span></h2>
+    <div class="regla" style="margin:16px auto"></div>
+    <p class="lead">Este kit es para mayores de 18 años.</p>
+    <div class="pie" data-pie></div>
+  </section>
+
+  <!-- 2b. Todas las recetas -->
+  <section class="screen" id="s-todas">
+    <h2>Todas las<br><span class="rojo">recetas</span></h2>
+    <div class="regla"></div>
+    <p class="ayuda">Cada una se puede hacer con Águila o con Águila 0.0.</p>
+    <div class="lista" id="lista"></div>
+    <button class="btn btn-rojo" id="todas-test" style="margin-top:16px">Mejor hago el test</button>
+    <div class="pie" data-pie></div>
+  </section>
+
+  <!-- 3. Pregunta (se reutiliza) -->
+  <section class="screen" id="s-pregunta">
+    <div class="progreso" id="progreso"></div>
+    <p class="paso" id="paso"></p>
+    <h2 class="pregunta" id="titulo"></h2>
+    <p class="ayuda" id="ayuda"></p>
+    <div class="opciones" id="opciones"></div>
+    <button class="btn btn-link volver" id="atras">Volver</button>
+    <div class="pie" data-pie></div>
+  </section>
+
+  <!-- 4. Resultado -->
+  <section class="screen" id="s-resultado">
+    <div class="res-img"><img id="r-img" alt=""></div>
+    <div style="margin-top:18px">
+      <span class="chip" id="r-chip">Tu receta</span>
+      <h2 id="r-nombre"></h2>
+      <div class="regla"></div>
+      <p class="lead" id="r-desc"></p>
+      <p class="match" id="r-match" style="margin-top:8px"></p>
+      <p class="meta"><span>Tiempo <b id="r-tiempo"></b></span><span>Dificultad <b id="r-dif"></b></span></p>
+    </div>
+
+    <div class="base" role="tablist" aria-label="Elige tu base">
+      <button data-base="aguila" role="tab">Con Águila</button>
+      <button data-base="cero" role="tab">Con Águila 0.0</button>
+    </div>
+    <p class="nota-base" id="r-nota"></p>
+
+    <div class="card bloque">
+      <h4>Ingredientes <span class="tag" style="font-family:'Hanken Grotesk'">· 1 vaso</span></h4>
+      <ul id="r-ing"></ul>
+      <p class="medidas">El vaso medidor del kit tiene dos lados: la medida grande es de 30 ml y la pequeña de 15 ml.</p>
+    </div>
+    <div class="card bloque">
+      <h4>Cómo se hace</h4>
+      <div class="pasos" id="r-pasos"></div>
+    </div>
+
+    <div class="card compra">
+      <h4>¿Comprarías este kit para tu próximo plan?</h4>
+      <div class="tres" id="compra">
+        <button data-v="si">Sí</button>
+        <button data-v="talvez">Tal vez</button>
+        <button data-v="no">No</button>
+      </div>
+      <p class="gracias-compra" id="gracias-compra">Gracias. Tu respuesta nos ayuda a validar el kit.</p>
+    </div>
+
+    <button class="btn btn-rojo" id="pedir" style="margin-bottom:10px">Pide tu kit</button>
+    <button class="btn btn-azul" id="compartir" style="margin-bottom:10px">Compartir con el parche</button>
+    <button class="btn btn-borde" id="repetir">Hacer el test otra vez</button>
+
+    <p class="paso" style="margin-top:26px">Las otras recetas del kit</p>
+    <div class="otras" id="otras"></div>
+
+    <div class="pie" data-pie></div>
+  </section>
+  <!-- 5. Pedido simulado -->
+  <section class="screen" id="s-pedido">
+    <h2>Elige<br><span class="rojo">tu kit</span></h2>
+    <div class="regla"></div>
+    <p class="ayuda">Los dos traen el mixer, el vaso medidor y las recetas.</p>
+    <button class="kit-op" data-kit="cero"><span class="etq" style="background:var(--dorado)">100% sin alcohol</span><b>Kit 0.0</b><span>6 latas Águila 0.0</span></button>
+    <button class="kit-op" data-kit="mixto"><span class="etq" style="background:var(--rojo)">Lo mejor de dos mundos</span><b>Kit Mixto</b><span id="txt-mixto"></span></button>
+    <div class="aviso">Pedido de muestra: no se cobra nada. En el piloto, el kit se pide por TaDa, la app de domicilios de Bavaria.</div>
+    <button class="btn btn-rojo" id="confirmar" disabled style="opacity:.45">Pedir</button>
+    <button class="btn btn-link" id="pedido-volver">Volver a mi receta</button>
+    <div class="pie" data-pie></div>
+  </section>
+
+  <!-- 6. Gracias -->
+  <section class="screen" id="s-gracias">
+    <h2>¡Listo<br><span class="rojo">el plan!</span></h2>
+    <div class="regla"></div>
+    <p class="lead" id="g-texto"></p>
+    <div class="card bloque" style="margin-top:18px">
+      <h4>Y después del plan</h4>
+      <p style="font-size:16px;line-height:1.4">Si tomaste, no manejes. Vuelve a casa en transporte o con alguien que no haya tomado.</p>
+    </div>
+    <button class="btn btn-borde" id="g-volver">Volver a mi receta</button>
+    <div class="pie" data-pie></div>
+  </section>
+</main>
+
+<!-- Verificación de edad -->
+<div class="velo" id="velo" role="dialog" aria-modal="true" aria-labelledby="edad-t">
+  <div class="hoja">
+    <h3 id="edad-t">Antes de seguir</h3>
+    <p>Este contenido es solo para mayores de edad. ¿Tienes 18 años o más?</p>
+    <div class="fila">
+      <button class="btn btn-rojo" data-edad="si">Sí, tengo 18+</button>
+      <button class="btn btn-borde" data-edad="no">No</button>
+    </div>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+<script src="config.js"></script>
+
+<script>
+/* Recetas: nombres e ingredientes base tomados del showroom (slides 7 y 8).
+   Cantidades y pasos: propuesta del equipo para el prototipo. */
+const RECETAS = {
+  clasica: {
+    nombre:"Clásica", img:"img/clasica.jpg",
+    desc:"La de siempre: limón, sal y hielo. Directa y sin vueltas.",
+    perfil:"Te gusta lo ácido y salado", tiempo:"3 min", dificultad:"Fácil",
+    ing:[["Águila o Águila 0.0","1 lata",1],["Limón exprimido (de las rodajas)","1 medida grande (30 ml)",1],["Sal de mar","para escarchar",1],["Rodaja de limón","para decorar",1],["Hielo","medio vaso",0]],
+    pasos:[
+      ["Enfría","Deja la lata en la nevera al menos 2 horas. Si puedes, enfría también el vaso."],
+      ["Escarcha","Extiende la sal en un plato. Pasa una rodaja de limón por el borde del vaso y gíralo boca abajo sobre la sal."],
+      ["Limón","Exprime 1 medida grande de limón (30 ml) dentro del vaso. Si te gusta bien ácida, agrega unas gotas más."],
+      ["Hielo","Llena el vaso hasta la mitad con hielo."],
+      ["Sirve","Inclina el vaso y vierte la lata despacio por la pared, para que no se suba la espuma. Endereza el vaso al final."],
+      ["Termina","Revuelve una sola vez desde el fondo y pon la rodaja de limón en el borde."]
+    ]
+  },
+  citrica: {
+    nombre:"Cítrica", img:"img/citrica.jpg",
+    desc:"Naranja, limón y toronja. Refrescante y ligeramente dulce.",
+    perfil:"Buscas algo fresco y cítrico", tiempo:"4 min", dificultad:"Fácil",
+    ing:[["Águila o Águila 0.0","1 lata",1],["Rodajas de naranja","2",1],["Rodaja de limón","1",1],["Jarabe natural","1 medida pequeña (15 ml)",1],["Jugo de toronja","1 medida grande (30 ml)",0],["Hielo","3/4 de vaso",0]],
+    pasos:[
+      ["Enfría","Deja la lata en la nevera al menos 2 horas."],
+      ["Base","Pon en el fondo del vaso 1 medida pequeña de jarabe natural (15 ml)."],
+      ["Exprime","Exprime encima una rodaja de naranja y la de limón. Mezcla con una cuchara."],
+      ["Toronja","Agrega 1 medida grande de jugo de toronja (30 ml) y llena el vaso de hielo hasta tres cuartos."],
+      ["Sirve","Inclina el vaso y vierte la lata despacio por la pared."],
+      ["Termina","Revuelve suave una vez y decora con media rodaja de naranja en el borde."]
+    ]
+  },
+  tropical: {
+    nombre:"Tropical", img:"img/tropical.jpg",
+    desc:"Piña, maracuyá y limón. Dulce y de sol.",
+    perfil:"Te va lo dulce y tropical", tiempo:"4 min", dificultad:"Fácil",
+    ing:[["Águila o Águila 0.0","1 lata",1],["Limón exprimido (de las rodajas)","1 medida pequeña (15 ml)",1],["Pulpa de maracuyá","1 medida grande (30 ml)",0],["Jugo de piña","1 medida grande (30 ml)",0],["Hielo","vaso lleno",0]],
+    pasos:[
+      ["Enfría","Deja la lata en la nevera al menos 2 horas."],
+      ["Base","Pon en el vaso 1 medida grande de pulpa de maracuyá (30 ml) y 1 medida grande de jugo de piña (30 ml)."],
+      ["Limón","Agrega 1 medida pequeña de limón (15 ml) y revuelve hasta que la pulpa se integre."],
+      ["Hielo","Llena el vaso de hielo hasta arriba."],
+      ["Sirve","Vierte la lata despacio, con el vaso inclinado."],
+      ["Termina","Revuelve una vez de abajo hacia arriba y decora con un trozo de piña o media fruta de maracuyá."]
+    ]
+  },
+  herbal: {
+    nombre:"Herbal", img:"img/herbal.jpg",
+    desc:"Hierbabuena y limón. Aromática con toque cítrico.",
+    perfil:"Prefieres algo fresco y herbal", tiempo:"5 min", dificultad:"Media",
+    ing:[["Águila o Águila 0.0","1 lata",1],["Hojas de hierbabuena","6 a 8, más una ramita",1],["Limón exprimido (de las rodajas)","1 medida pequeña (15 ml)",1],["Jarabe natural","1 medida pequeña (15 ml)",1],["Hielo","3/4 de vaso",0]],
+    pasos:[
+      ["Enfría","Deja la lata en la nevera al menos 2 horas."],
+      ["Aroma","Pon las hojas de hierbabuena en el fondo del vaso. Antes, dales una palmada entre las manos para que suelten el aroma."],
+      ["Machaca","Agrega 1 medida pequeña de jarabe (15 ml) y 1 de limón (15 ml). Presiona suave con una cuchara 4 o 5 veces, sin romper las hojas."],
+      ["Hielo","Llena el vaso de hielo hasta tres cuartos."],
+      ["Sirve","Vierte la lata despacio, con el vaso inclinado."],
+      ["Termina","Revuelve desde el fondo para subir las hojas y decora con la ramita de hierbabuena."]
+    ]
+  },
+  frutal: {
+    nombre:"Frutal", img:"img/frutal.jpg",
+    desc:"Mora y frutos rojos. Dulce, vibrante y de color intenso.",
+    perfil:"Te gusta lo dulce y frutal", tiempo:"4 min", dificultad:"Fácil",
+    ing:[["Águila o Águila 0.0","1 lata",1],["Jarabe natural","1 medida pequeña (15 ml)",1],["Limón exprimido (de las rodajas)","1 medida pequeña (15 ml)",1],["Pulpa de mora o frutos rojos","1 medida grande (30 ml)",0],["Hielo","vaso lleno",0]],
+    pasos:[
+      ["Enfría","Deja la lata en la nevera al menos 2 horas."],
+      ["Base","Pon en el vaso 1 medida grande de pulpa de mora (30 ml)."],
+      ["Equilibra","Agrega 1 medida pequeña de jarabe (15 ml) y 1 de limón (15 ml). Mezcla bien. Si la quieres menos dulce, usa la mitad del jarabe."],
+      ["Hielo","Llena el vaso de hielo hasta arriba."],
+      ["Sirve","Vierte la lata muy despacio por la pared del vaso: la fruta queda abajo y la cerveza arriba, en capas."],
+      ["Termina","Tómale la foto en capas y revuelve antes de tomar. Decora con una mora."]
+    ]
+  }
+};
+
+/* Test: cada opción suma puntos a una o más recetas. */
+const PREGUNTAS = [
+  { t:"¿Cuál es<br>el plan hoy?", a:"Para saber en qué momento la vas a tomar.", o:[
+    ["P","Previa en casa","Antes de salir con el parche",{citrica:2,frutal:2}],
+    ["A","Asado o almuerzo","Comida con amigos o familia",{clasica:2,herbal:1}],
+    ["F","Ver el partido","Fútbol en la sala",{clasica:2,citrica:1}],
+    ["S","Tarde de sol","Piscina, terraza o paseo",{tropical:2,herbal:2}]
+  ]},
+  { t:"¿Cómo te gusta<br>tu bebida?", a:"Piensa en la que pides siempre.", o:[
+    ["L","Ligera y refrescante","Para tomar despacio",{citrica:1,herbal:2,clasica:1}],
+    ["I","Intensa","Que el sabor se sienta",{frutal:2,tropical:1,clasica:1}],
+    ["C","Bien preparada","Tipo cóctel, con decoración",{tropical:2,frutal:1,herbal:1}]
+  ]},
+  { t:"¿Qué sabor<br>te llama?", a:"El primero que se te venga a la cabeza.", o:[
+    ["1","Ácido y salado","Limón y sal",{clasica:3}],
+    ["2","Cítrico","Naranja, toronja",{citrica:3}],
+    ["3","Tropical","Piña, maracuyá",{tropical:3}],
+    ["4","Fresco","Hierbabuena",{herbal:3}],
+    ["5","Frutal","Mora, frutos rojos",{frutal:3}]
+  ]},
+  { t:"¿Qué tan<br>dulce?", a:"Sin pensarlo mucho.", o:[
+    ["−","Nada dulce","Prefiero lo seco",{clasica:2,citrica:1}],
+    ["~","Un toque","Que se sienta, pero poco",{citrica:1,herbal:2,tropical:1}],
+    ["+","Bastante","Me gusta lo dulce",{frutal:2,tropical:2}]
+  ]},
+  { t:"¿Sal en<br>el borde?", a:"La escarcha cambia todo.", o:[
+    ["S","Siempre","Sin sal no es lo mismo",{clasica:3}],
+    ["~","A veces","Depende de la bebida",{citrica:1,tropical:1}],
+    ["N","Nunca","Prefiero el vaso limpio",{herbal:1,frutal:1,tropical:1}]
+  ]},
+  { t:"¿Con qué<br>antojo te quedas?", a:"Uno solo.", o:[
+    ["M","Mango biche con sal y limón","",{clasica:2}],
+    ["N","Jugo de naranja recién hecho","",{citrica:2}],
+    ["J","Jugo de maracuyá bien frío","",{tropical:2}],
+    ["L","Limonada de hierbabuena","",{herbal:2}],
+    ["F","Fresas con crema","",{frutal:2}]
+  ]},
+  { t:"¿Cómo la<br>quieres hoy?", a:"En el vaso se ven igual. Nadie tiene que preguntar.", base:true, o:[
+    ["Á","Con Águila","",{}, "aguila"],
+    ["0.0","Con Águila 0.0","Sin alcohol, mismo plan",{}, "cero"],
+    ["?","Lo decido en el momento","Te mostramos las dos",{}, "abierta"]
+  ]}
+];
+
+const $ = s => document.querySelector(s);
+const $$ = s => [...document.querySelectorAll(s)];
+let paso = 0, respuestas = [], base = "abierta", actual = null;
+
+const PIE = `<p class="legal">El exceso de alcohol es perjudicial para la salud. Prohíbase el expendio de bebidas embriagantes a menores de edad.</p>
+<p>Ley 124 de 1994.</p>`;
+$$("[data-pie]").forEach(e => e.innerHTML = PIE);
+
+/* Cada pantalla queda en el historial: el botón atrás del celular vuelve a la anterior en vez de salir de la página. */
+function ver(id, silencio){
+  $$(".screen").forEach(s => s.classList.toggle("on", s.id === id));
+  window.scrollTo({top:0,behavior:"instant"});
+  if(!silencio) history.pushState({id, paso}, "");
+}
+history.replaceState({id:"s-inicio"}, "");
+window.addEventListener("popstate", e => {
+  $("#velo").classList.remove("on");
+  const st = e.state || {id:"s-inicio"};
+  if(st.id === "s-pregunta"){ paso = st.paso || 0; respuestas = respuestas.slice(0, paso); pintarPregunta(); }
+  if((st.id === "s-resultado" || st.id === "s-pedido" || st.id === "s-gracias") && !actual){ ver("s-inicio", true); return; }
+  ver(st.id, true);
+});
+function toast(t){ const e=$("#toast"); e.textContent=t; e.classList.add("on"); setTimeout(()=>e.classList.remove("on"),2200); }
+function guardar(k,v){ try{ sessionStorage.setItem(k,v) }catch(e){} }
+function leer(k){ try{ return sessionStorage.getItem(k) }catch(e){ return null } }
+
+const CFG = window.KIT_CONFIG || { sheetUrl:"", kitMixto:{aguila:3,cero:3} };
+const SESION = leer("sesion") || (()=>{ const s = Date.now().toString(36)+Math.random().toString(36).slice(2,8); guardar("sesion",s); return s; })();
+
+/* Envía cada evento a la Google Sheet (si está configurada). Nunca bloquea la página. */
+function registrar(evento, datos = {}){
+  if(!CFG.sheetUrl) return;
+  const cuerpo = JSON.stringify({ sesion:SESION, evento, ...datos });
+  try{ fetch(CFG.sheetUrl, { method:"POST", mode:"no-cors", keepalive:true, headers:{"Content-Type":"text/plain;charset=utf-8"}, body:cuerpo }).catch(()=>{}); }catch(e){}
+}
+
+/* Verificación de edad: aparece antes de la primera acción, no en la portada. */
+let pendiente = null;
+function conEdad(accion){
+  if(leer("edad") === "ok"){ accion(); return; }
+  pendiente = accion; $("#velo").classList.add("on");
+}
+$$("[data-edad]").forEach(b => b.onclick = () => {
+  $("#velo").classList.remove("on");
+  if(b.dataset.edad === "si"){ guardar("edad","ok"); registrar("edad_ok"); if(pendiente) pendiente(); }
+  else { registrar("edad_no"); ver("s-menor"); }
+  pendiente = null;
+});
+
+function iniciarTest(){ paso = 0; respuestas = []; base = "abierta"; pintarPregunta(); ver("s-pregunta"); }
+$("#empezar").onclick = () => conEdad(iniciarTest);
+$("#lista").innerHTML = Object.entries(RECETAS).map(([k,v])=>`<button data-r="${k}"><img src="${v.img}" alt=""><span><b>${v.nombre}</b>${v.desc}</span></button>`).join("");
+$$("#lista button").forEach(b => b.onclick = () => { base = "abierta"; registrar("ver_lista",{receta:b.dataset.r}); mostrar(b.dataset.r, 0); ver("s-resultado"); });
+$("#ver-todas").onclick = () => conEdad(() => { registrar("abrir_lista"); ver("s-todas"); });
+$("#todas-test").onclick = iniciarTest;
+$("#atras").onclick = () => history.back();
+
+/* Intención de compra */
+$$("#compra button").forEach(b => b.onclick = () => {
+  $$("#compra button").forEach(x => x.classList.toggle("on", x === b));
+  $("#gracias-compra").style.display = "block";
+  registrar("compra", { receta:actual, base, valor:b.dataset.v });
+});
+
+/* Pedido simulado */
+let kitElegido = null;
+$("#txt-mixto").textContent = `${CFG.kitMixto.aguila} latas Águila + ${CFG.kitMixto.cero} latas Águila 0.0`;
+$("#pedir").onclick = () => { registrar("abrir_pedido",{receta:actual}); ver("s-pedido"); };
+$$(".kit-op").forEach(b => b.onclick = () => {
+  kitElegido = b.dataset.kit;
+  $$(".kit-op").forEach(x => x.classList.toggle("sel", x === b));
+  $("#confirmar").disabled = false; $("#confirmar").style.opacity = 1;
+});
+$("#confirmar").onclick = () => {
+  if(!kitElegido) return;
+  registrar("pedido", { receta:actual, base, valor:kitElegido });
+  const nombreKit = kitElegido === "cero" ? "Kit 0.0" : "Kit Mixto";
+  $("#g-texto").textContent = `Elegiste el ${nombreKit} para preparar la ${RECETAS[actual].nombre}. Así se vería tu pedido en el piloto.`;
+  ver("s-gracias");
+};
+$("#pedido-volver").onclick = () => ver("s-resultado");
+$("#g-volver").onclick = () => ver("s-resultado");
+
+function pintarPregunta(){
+  const q = PREGUNTAS[paso];
+  $("#progreso").innerHTML = PREGUNTAS.map((_,i)=>`<i class="${i<=paso?'lleno':''}"></i>`).join("");
+  $("#paso").textContent = `Pregunta ${paso+1} de ${PREGUNTAS.length}`;
+  $("#titulo").innerHTML = q.t;
+  $("#ayuda").textContent = q.a;
+  $("#opciones").innerHTML = q.o.map((o,i)=>`<button class="op" data-i="${i}"><span class="ico">${o[0]}</span><span>${o[1]}${o[2]?`<small>${o[2]}</small>`:""}</span></button>`).join("");
+  let elegida = false;
+  $$("#opciones .op").forEach(b => b.onclick = () => {
+    if(elegida) return; elegida = true;
+    b.classList.add("sel");
+    respuestas.push(+b.dataset.i);
+    setTimeout(() => {
+      paso++;
+      if(paso < PREGUNTAS.length){ pintarPregunta(); history.pushState({id:"s-pregunta", paso}, ""); window.scrollTo({top:0}); }
+      else resultado();
+    }, 220);
+  });
+}
+
+function resultado(){
+  const puntos = Object.fromEntries(Object.keys(RECETAS).map(k=>[k,0]));
+  respuestas.forEach((r,i) => { const o = PREGUNTAS[i].o[r]; for(const k in o[3]) puntos[k] += o[3][k]; if(PREGUNTAS[i].base) base = o[4]; });
+  const orden = Object.entries(puntos).sort((a,b)=>b[1]-a[1]);
+  const max = PREGUNTAS.slice(0,-1).reduce((s,q)=>s+Math.max(...q.o.map(o=>Math.max(0,...Object.values(o[3])))),0);
+  const pct = Math.min(99, Math.round(60 + 40 * orden[0][1] / max));
+  registrar("resultado", {receta:orden[0][0], base, respuestas});
+  mostrar(orden[0][0], pct);
+  ver("s-resultado");
+}
+
+function mostrar(clave, pct){
+  actual = clave; const r = RECETAS[clave];
+  $$("#compra button").forEach(x => x.classList.remove("on")); $("#gracias-compra").style.display = "none";
+  $("#r-img").src = r.img; $("#r-img").alt = `Receta ${r.nombre} servida junto a una lata Águila`;
+  $("#r-nombre").innerHTML = `${r.nombre.split(" ")[0]}<span class="rojo"> del parche</span>`;
+  $("#r-desc").textContent = r.desc;
+  $("#r-tiempo").textContent = r.tiempo; $("#r-dif").textContent = r.dificultad;
+  $("#r-chip").textContent = pct ? "Tu receta" : "Receta del kit";
+  $("#r-match").textContent = pct ? `${r.perfil} · ${pct}% de coincidencia` : r.perfil;
+  pintarBase();
+  $("#r-pasos").innerHTML = r.pasos.map(p=>`<div><span><b>${p[0]}</b>${p[1]}</span></div>`).join("");
+  $("#otras").innerHTML = Object.entries(RECETAS).filter(([k])=>k!==clave).map(([k,v])=>`<button data-r="${k}"><img src="${v.img}" alt="">${v.nombre}</button>`).join("");
+  $$("#otras button").forEach(b => b.onclick = () => { registrar("ver_otra",{receta:b.dataset.r}); mostrar(b.dataset.r, 0); window.scrollTo({top:0,behavior:"smooth"}); });
+}
+
+function pintarBase(){
+  const r = RECETAS[actual];
+  $$(".base button").forEach(b => b.classList.toggle("on", b.dataset.base === base));
+  const nombreBase = base === "cero" ? "Águila 0.0" : base === "aguila" ? "Águila" : "Águila o Águila 0.0";
+  const fila = (x) => `<li><span>${x === r.ing[0] ? nombreBase : x[0]}</span><span>${x[1]}</span></li>`;
+  const enKit = r.ing.filter(x => x[2]), aparte = r.ing.filter(x => !x[2]);
+  $("#r-ing").innerHTML = `<li class="grupo">Viene en tu kit</li>${enKit.map(fila).join("")}`
+    + (aparte.length ? `<li class="grupo">Consigue aparte</li>${aparte.map(fila).join("")}` : "");
+  $("#r-nota").textContent = base === "cero" ? "Mismo vaso, mismo ritual, sin alcohol. Nadie tiene que preguntar."
+    : base === "aguila" ? "Disfruta con moderación. Si quieres bajar el ritmo, la siguiente puede ser 0.0."
+    : "Elige la base cuando sirvas. La receta es la misma.";
+}
+$$(".base button").forEach(b => b.onclick = () => { base = b.dataset.base; registrar("cambio_base",{base}); pintarBase(); });
+
+$("#repetir").onclick = () => { base = "abierta"; $("#empezar").click(); };
+$("#compartir").onclick = async () => {
+  const r = RECETAS[actual];
+  const texto = `Me salió la ${r.nombre} del Kit del Parche. Haz el test y mira cuál te sale a ti:`;
+  registrar("compartir",{receta:actual});
+  try{
+    if(navigator.share){ await navigator.share({title:"El Kit del Parche", text:texto, url:location.href.split("#")[0]}); }
+    else { await navigator.clipboard.writeText(`${texto} ${location.href.split("#")[0]}`); toast("Link copiado"); }
+  }catch(e){}
+};
+
+</script>
+</body>
+</html>
